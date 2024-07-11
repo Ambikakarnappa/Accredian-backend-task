@@ -1,0 +1,21 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL") // This line references your environment variable
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Define your models here
+model Referral {
+  id            Int    @id @default(autoincrement())
+  referrerName   String
+  referrerEmail  String
+  name          String
+  email         String
+  message       String
+  createdAt     DateTime @default(now())
+}
